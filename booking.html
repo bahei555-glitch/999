@@ -3,194 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>حجز موعد - صالون لمسة إبداعية</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-<style>
-/* ===== عام ===== */
-body {
-    margin: 0;
-    font-family: 'Cairo', sans-serif;
-    background: #111;
-    color: #fff;
-    scroll-behavior: smooth;
-}
-
-/* ===== الشريط العلوي كما في الرئيسية ===== */
-.top-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 15px 0;
-    background-color: #222;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-}
-
-.top-logo.shrink {
-    padding: 5px 0;
-}
-
-.top-logo .logo-img {
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 10px rgba(255, 204, 0, 0.5);
-    border: 2px solid #ffcc00;
-}
-
-.top-logo.shrink .logo-img {
-    height: 40px;
-    width: 40px;
-}
-
-.top-logo .logo-text {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #fff;
-    transition: font-size 0.3s ease;
-}
-
-.top-logo.shrink .logo-text {
-    font-size: 1.5rem;
-}
-
-/* ===== الهيدر ===== */
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #222;
-    position: relative;
-}
-
-.nav-links {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #fff;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #222;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 200px;
-        padding: 10px;
-        border-radius: 5px;
-    }
-    .nav-links.show {
-        display: flex;
-    }
-    .menu-toggle {
-        display: block;
-    }
-}
-
-/* ===== نموذج الحجز ===== */
-.booking-container {
-    max-width: 500px;
-    margin: 50px auto;
-    background: #222;
-    padding: 25px 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(255,204,0,0.2);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.booking-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: gold;
-    font-size: 1.5rem;
-}
-
-label {
-    color: gold;
-    font-weight: bold;
-}
-
-input, select, textarea, button {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-input, textarea {
-    padding: 12px;
-    background: #111;
-    border: 1px solid #444;
-    border-radius: 6px;
-    color: #fff;
-}
-
-textarea {
-    height: 90px;
-    resize: none;
-}
-
-button {
-    padding: 12px;
-    background: gold;
-    color: #111;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(255,204,0,0.7);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #222;
-    margin-top: 40px;
-}
-</style>
+<title>الحجز - صالون لمسة إبداعية</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
 </head>
 <body>
 
-<!-- الشريط العلوي -->
 <div class="top-logo">
     <img src="images/logo.jpg" alt="Logo" class="logo-img">
     <span class="logo-text">صالون لمسة إبداعية</span>
 </div>
 
 <header class="navbar">
-  <button class="menu-toggle">
-      <i class="fas fa-bars"></i>
-  </button>
+  <button class="menu-toggle"><i class="fas fa-bars"></i></button>
   <ul class="nav-links">
       <li><a href="index.html">الرئيسية</a></li>
       <li><a href="services.html">الخدمات</a></li>
@@ -201,85 +26,28 @@ footer {
   </ul>
 </header>
 
-<!-- نموذج الحجز -->
-<div class="booking-container">
-    <h2>احجز موعدك الآن</h2>
+<div class="section">
+    <h2>حجز موعد</h2>
+    <form class="contact-form">
+        <label>اسمك:</label>
+        <input type="text" placeholder="اكتب اسمك">
 
-    <label>الاسم الكامل:</label>
-    <input type="text" id="name" placeholder="اكتب اسمك">
+        <label>رقم الجوال:</label>
+        <input type="text" placeholder="05xxxxxxxx">
 
-    <label>رقم الجوال:</label>
-    <input type="text" id="phone" placeholder="05xxxxxxxx">
+        <label>الخدمة المطلوبة:</label>
+        <input type="text" placeholder="اختر الخدمة">
 
-    <label>اختر الحلاق:</label>
-    <select id="barber">
-        <option>السيد</option>
-        <option>محمد</option>
-        <option>عبدالله</option>
-        <option>سمير</option>
-    </select>
+        <label>التاريخ والوقت:</label>
+        <input type="datetime-local">
 
-    <label>الملاحظات:</label>
-    <textarea id="notes" placeholder="أضف أي تفاصيل إضافية"></textarea>
-
-    <button onclick="sendBooking()">إرسال عبر واتساب</button>
+        <button type="submit">حجز الآن</button>
+    </form>
 </div>
 
 <footer>
     جميع الحقوق محفوظة © صالون لمسة إبداعية
 </footer>
-
-<script>
-/* تكبير/تصغير اللوجو عند التمرير */
-const topLogo = document.querySelector('.top-logo');
-window.addEventListener('scroll', () => {
-    if(window.scrollY > 50){
-        topLogo.classList.add('shrink');
-    } else {
-        topLogo.classList.remove('shrink');
-    }
-});
-
-/* قائمة الموبايل */
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-});
-
-/* إرسال الحجز عبر واتساب */
-function sendBooking(){
-    const managerPhone = "0509084202"; // رقم المدير
-    const barberPhones = {
-        "السيد": "0548840672",
-        "محمد": "0565441337",
-        "عبدالله": "0546220113",
-        "سمير": "0548840672"
-    };
-
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const barber = document.getElementById("barber").value;
-    const notes = document.getElementById("notes").value;
-
-    if(!name || !phone){
-        alert("يرجى كتابة الاسم ورقم الجوال");
-        return;
-    }
-
-    const message = `طلب حجز جديد:\nالاسم: ${name}\nالجوال: ${phone}\nالحلاق: ${barber}\nملاحظات: ${notes ? notes : "لا يوجد"}`;
-
-    // إرسال للمدير
-    const managerUrl = `https://wa.me/${managerPhone}?text=${encodeURIComponent(message)}`;
-    window.open(managerUrl, '_blank');
-
-    // إرسال للحلاق المختار
-    if(barberPhones[barber]){
-        const barberUrl = `https://wa.me/${barberPhones[barber]}?text=${encodeURIComponent(message)}`;
-        window.open(barberUrl, '_blank');
-    }
-}
-</script>
 
 </body>
 </html>
