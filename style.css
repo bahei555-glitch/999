@@ -1,0 +1,226 @@
+/* ====== إعدادات عامة ====== */
+body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    direction: rtl;
+    background: #111;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ====== الهيدر والـ Navbar ====== */
+.navbar {
+    background: #222;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* اللوجو واسم المحل */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.logo-img {
+    width: 100px;
+    height: auto;
+}
+
+.logo-text {
+    font-size: 32px;
+    font-weight: 800;
+    color: gold;
+}
+
+/* الخط الفاصل */
+.nav-separator {
+    width: 90%;
+    height: 3px;
+    background-color: gold;
+    margin-bottom: 10px;
+}
+
+/* قائمة الصفحات */
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: gold;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #fff;
+}
+
+/* ====== Hero Section ====== */
+.hero {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('https://via.placeholder.com/1200x600') center/cover no-repeat;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background: gold;
+    color: #111;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+}
+
+/* ====== Services Section ====== */
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 42px;
+    margin-bottom: 40px;
+    color: gold;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.service-card {
+    background: #222;
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+}
+
+.service-card h3 {
+    color: gold;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    color: #ccc;
+}
+
+/* ====== Team Section ====== */
+.team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.member {
+    background: #1c1c1c;
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.member:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+}
+
+.member img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.member h3 {
+    margin: 8px 0;
+}
+
+/* ====== Footer ====== */
+footer {
+    background: #222;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo-wrapper {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .logo-img {
+        width: 70px;
+    }
+
+    .logo-text {
+        font-size: 28px;
+    }
+
+    /* قائمة الجوال: 3 عناصر في الصف */
+    .nav-links {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-links li a {
+        font-size: 18px;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .hero h1 { font-size: 36px; }
+    .hero p { font-size: 18px; }
+    .section h2 { font-size: 36px; }
+    .services-grid, .team { grid-template-columns: 1fr; }
+}
