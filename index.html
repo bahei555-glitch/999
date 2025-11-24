@@ -4,12 +4,157 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>صالون لمسة إبداعية - الرئيسية</title>
-<link rel="stylesheet" href="style.css">
-<script defer src="script.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<style>
+/* ===== عام ===== */
+body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    background: #111;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+/* ===== الشريط العلوي ===== */
+.top-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 0;
+    background-color: #222;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+.top-logo.shrink { padding: 5px 0; }
+.top-logo .logo-img { height: 60px; width: 60px; border-radius: 50%; object-fit: cover; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.4),0 0 10px rgba(255,204,0,0.5); border:2px solid #ffcc00;}
+.top-logo.shrink .logo-img { height: 40px; width: 40px; }
+.top-logo .logo-text { font-size: 2rem; font-weight: bold; color: #fff; transition: font-size 0.3s ease; }
+.top-logo.shrink .logo-text { font-size: 1.5rem; }
+
+/* ===== الهيدر ===== */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #222;
+    position: relative;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #222;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        border-radius: 5px;
+        z-index: 999;
+    }
+    .nav-links.show { display: flex; }
+    .menu-toggle { display: block; }
+}
+
+/* Hero Section مع Parallax */
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 150px 20px 80px 20px;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('images/hero-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 20px; text-shadow: 0 0 10px rgba(0,0,0,0.7); }
+.hero p { font-size: 1.5rem; margin-bottom: 30px; text-shadow: 0 0 10px rgba(0,0,0,0.7); }
+.hero .btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ffcc00 0%, #ffa500 100%);
+    color: #111;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.hero .btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 25px rgba(255, 204, 0, 0.7);
+    background: linear-gradient(135deg, #ffd633 0%, #ff9900 100%);
+}
+
+/* Services Section */
+.section h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; }
+.services { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 40px 20px; }
+.service-card {
+    background-color: #222;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 220px;
+    transition: all 0.3s ease;
+}
+.service-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 10px; transition: transform 0.3s ease, filter 0.3s ease; }
+.service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255, 204, 0, 0.7); background: linear-gradient(135deg, #ffcc00 0%, #ffa500 100%); color: #111; }
+.service-card:hover h3, .service-card:hover p { color: #111; }
+
+/* Team Section */
+.team { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 40px 20px; }
+.member {
+    background-color: #222;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.member img { width: 100%; height: 220px; object-fit: cover; border-radius: 5px; margin-bottom: 10px; transition: transform 0.5s ease, filter 0.3s ease; }
+.member:hover img { transform: scale(1.15) translateY(-10px); filter: brightness(0.85); }
+.member h3 { margin-bottom: 5px; }
+.member p { font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 5px; }
+.member:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255,204,0,0.7); background: linear-gradient(135deg, #ffcc00 0%, #ffa500 100%); color: #111; }
+.member:hover h3, .member:hover p { color: #111; }
+.member p i { color: #ffcc00; transition: all 0.3s ease; }
+.member p i:hover { transform: scale(1.2); text-shadow: 0 0 10px #ffcc00; }
+
+/* Footer */
+footer { text-align:center; padding:20px; background:#222; margin-top:40px; }
+</style>
 </head>
 <body>
 
-<!-- شعار المحل -->
+<!-- الشعار -->
 <div class="top-logo">
     <img src="images/logo.jpg" alt="Logo" class="logo-img">
     <span class="logo-text">صالون لمسة إبداعية</span>
@@ -17,15 +162,15 @@
 
 <!-- الهيدر -->
 <header class="navbar">
-  <button class="menu-toggle"><i class="fas fa-bars"></i></button>
-  <ul class="nav-links">
-      <li><a href="index.html">الرئيسية</a></li>
-      <li><a href="services.html">الخدمات</a></li>
-      <li><a href="prices.html">الأسعار</a></li>
-      <li><a href="booking.html">الحجز</a></li>
-      <li><a href="team.html">الفريق</a></li>
-      <li><a href="contact.html">اتصل بنا</a></li>
-  </ul>
+    <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="services.html">الخدمات</a></li>
+        <li><a href="prices.html">الأسعار</a></li>
+        <li><a href="booking.html">الحجز</a></li>
+        <li><a href="team.html">الفريق</a></li>
+        <li><a href="contact.html">اتصل بنا</a></li>
+    </ul>
+    <button class="menu-toggle"><i class="fas fa-bars"></i></button>
 </header>
 
 <!-- Hero Section -->
@@ -35,63 +180,94 @@
     <a href="booking.html" class="btn">احجز الآن</a>
 </div>
 
-<!-- الخدمات -->
+<!-- Services Section -->
 <div class="section">
     <h2>خدماتنا</h2>
     <div class="services">
-        <div class="service-card animate">
-            <img src="images/service1.jpg" alt="قص الشعر">
+        <div class="service-card">
+            <img src="images/33.jpeg" alt="قص الشعر">
             <h3>قص الشعر</h3>
             <p>أفضل قصات الشعر مع أحدث الأساليب الحديثة.</p>
         </div>
-        <div class="service-card animate">
-            <img src="images/service2.jpg" alt="الحلاقة">
+        <div class="service-card">
+            <img src="images/55.jpeg" alt="الحلاقة">
             <h3>الحلاقة</h3>
             <p>حلاقة دقيقة وأنيقة مع أدوات عالية الجودة.</p>
         </div>
-        <div class="service-card animate">
-            <img src="images/service3.jpg" alt="تزيين اللحية">
+        <div class="service-card">
+            <img src="images/22.jpeg" alt="تزيين اللحية">
             <h3>تزيين اللحية</h3>
             <p>تصميم اللحية بأسلوب عصري ومرتب.</p>
         </div>
-        <div class="service-card animate">
-            <img src="images/service4.jpg" alt="العناية بالبشرة">
+        <div class="service-card">
+            <img src="images/111.jpeg" alt="العناية بالبشرة">
             <h3>العناية بالبشرة</h3>
             <p>تنظيف وترطيب البشرة لتبدو صحية ونضرة.</p>
         </div>
     </div>
 </div>
 
-<!-- الفريق -->
+<!-- Team Section -->
 <div class="section">
     <h2>طاقم العمل</h2>
     <div class="team">
-        <div class="member animate">
-            <img src="images/e.jpg" alt="السيد">
+        <div class="member">
+            <img src="e.jpg" alt="السيد">
             <h3>السيد</h3>
-            <p><i class="fas fa-mobile-alt"></i> 0548840672</p>
+            <p>
+                <a href="https://wa.me/0548840672" target="_blank" style="color: #fff; text-decoration: none; display: flex; align-items: center; justify-content: center; gap:5px;">
+                    <i class="fab fa-whatsapp" style="color:#25D366;"></i> 0548840672
+                </a>
+            </p>
         </div>
-        <div class="member animate">
-            <img src="images/m.jpg" alt="محمد">
+        <div class="member">
+            <img src="m.jpg" alt="محمد">
             <h3>محمد</h3>
-            <p><i class="fas fa-mobile-alt"></i> 0565441337</p>
+            <p>
+                <a href="https://wa.me/0565441337" target="_blank" style="color: #fff; text-decoration: none; display: flex; align-items: center; justify-content: center; gap:5px;">
+                    <i class="fab fa-whatsapp" style="color:#25D366;"></i> 0565441337
+                </a>
+            </p>
         </div>
-        <div class="member animate">
-            <img src="images/a.jpg" alt="عبدالله">
+        <div class="member">
+            <img src="a.jpg" alt="عبدالله">
             <h3>عبدالله</h3>
-            <p><i class="fas fa-mobile-alt"></i> 0546220113</p>
+            <p>
+                <a href="https://wa.me/0546220113" target="_blank" style="color: #fff; text-decoration: none; display: flex; align-items: center; justify-content: center; gap:5px;">
+                    <i class="fab fa-whatsapp" style="color:#25D366;"></i> 0546220113
+                </a>
+            </p>
         </div>
-        <div class="member animate">
-            <img src="images/s.jpg" alt="سمير">
+        <div class="member">
+            <img src="s.jpg" alt="سمير">
             <h3>سمير</h3>
-            <p><i class="fas fa-mobile-alt"></i> 0548840672</p>
+            <p>
+                <a href="https://wa.me/0543077867" target="_blank" style="color: #fff; text-decoration: none; display: flex; align-items: center; justify-content: center; gap:5px;">
+                    <i class="fab fa-whatsapp" style="color:#25D366;"></i> 0543077867
+                </a>
+            </p>
         </div>
     </div>
 </div>
 
+<!-- Footer -->
 <footer>
     جميع الحقوق محفوظة © صالون لمسة إبداعية
 </footer>
+
+<script>
+/* تكبير/تصغير اللوجو عند التمرير */
+const topLogo = document.querySelector('.top-logo');
+window.addEventListener('scroll', () => {
+    if(window.scrollY > 50) topLogo.classList.add('shrink');
+    else topLogo.classList.remove('shrink');
+});
+
+/* زر القائمة للموبايل */
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+menuToggle.addEventListener('click', () => navLinks.classList.toggle('show'));
+</script>
 
 </body>
 </html>
