@@ -1,0 +1,23 @@
+[
+    {
+        "employee": "\u0645\u062d\u0645\u062f",
+        "amount": 500,
+        "method": "cash",
+        "date": "2025-12-22",
+        "time": "10:36 AM"
+    },
+    {
+        "employee": "\u0645\u062d\u0645\u062f",
+        "amount": 300,
+        "method": "card",
+        "date": "2025-12-22",
+        "time": "10:36 AM"
+    },
+    {
+        "employee": "\u0645\u062d\u0645\u062f",
+        "amount": 200,
+        "method": "cash",
+        "date": "2025-12-22",
+        "time": "10:52 AM"
+    }
+]
